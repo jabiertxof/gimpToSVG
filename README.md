@@ -1,7 +1,5 @@
 # gimp-export-to-svg
-## Version 0.3
-## License: GPL v3+
-## Author: Erdem Guven <zuencap@yahoo.com>
+## Version 0.3, License: GPL v3+, Author: Erdem Guven <zuencap@yahoo.com>
 ```
 Copyright 2010 Erdem Guven
 Copyright 2009 Chris Mohler
