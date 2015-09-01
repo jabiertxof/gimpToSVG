@@ -14,6 +14,6 @@ Dont upload in gimp registry because site in lockdown mode for spam
 Put the .py file in Gimp plugin folder and if linux make it executable
 
 "Only Visible" and filename formatting introduced by mh
-"Layer Groups to nested Inkscape layers" "Crop layer" introduced by Jabiertxof
+"Retain visibility", "Layer Groups to nested Inkscape layers" "Crop layer" introduced by Jabiertxof
 "Flattern" "Offset" introduced by Jabiertxof based on  http://registry.gimp.org/node/18440
 ```
