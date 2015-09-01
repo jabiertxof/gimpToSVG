@@ -8,7 +8,7 @@
 # "Groups" "Crop layer" introduced by Jabiertxof
 # "Flattern" "Offset" introduced by Jabiertxof from http://registry.gimp.org/node/18440 V0.6
 # License: GPL v3+
-# Version 0.2
+# Version 0.3
 # GIMP plugin to export as SVG
 
 from gimpfu import *
@@ -97,7 +97,7 @@ def export_as_svg(img, drw, path, only_visible=False, flatten=False, remove_offs
 <svg xmlns:xlink="http://www.w3.org/1999/xlink" """)
     if inkscape_layers:
         svgfile.write('xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" ')
-    svgfile.write('width="%d" height="%d">' % (img.width, img.height));
+    svgfile.write('width="%d" height="%d" viewBox="0 0 %d %d">' % (img.width, img.height, img.width, img.height));
     svgfile.write(images);
     svgfile.write("</svg>");
 
