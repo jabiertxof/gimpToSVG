@@ -39,6 +39,8 @@ def get_layers(layers, only_visible):
 
 def layer_process(layers, only_visible, dupe, path, flatten=False, remove_offsets=False, crop=False, inkscape_layers=True):
     images = ""
+    version = gimp.version[0:2]
+    is_2dot8_up = version[0] >= 2 and version[1] >= 8
     for layer in layers:
         if only_visible:
             if not layer.visible:
@@ -48,7 +50,7 @@ def layer_process(layers, only_visible, dupe, path, flatten=False, remove_offset
         filename = format_filename(dupe, layer)
         fullpath = os.path.join(path, filename);
         tmp = False
-        if not pdb.gimp_item_is_group(layer):
+        if not is_2dot8_up or not pdb.gimp_item_is_group(layer):
             is_visible = layer.visible
             layer.visible = 1
             tmp = pdb.gimp_image_new(pdb.gimp_image_width(dupe), pdb.gimp_image_height(dupe), pdb.gimp_image_base_type(dupe))
@@ -71,10 +73,10 @@ def layer_process(layers, only_visible, dupe, path, flatten=False, remove_offset
         if inkscape_layers:
             image = '<g inkscape:groupmode="layer" inkscape:label="%s" %s>' % (layer.name.decode('utf-8'),style)
             style = ""
-        if not pdb.gimp_item_is_group(layer):
+        if not is_2dot8_up or not pdb.gimp_item_is_group(layer):
             image += ('<image xlink:href="%s" x="%d" y="%d" width="%d" height="%d" %s/>\n' % 
                 (fullpath,tmp.layers[0].offsets[0],tmp.layers[0].offsets[1],tmp.layers[0].width,tmp.layers[0].height,style))
-        if pdb.gimp_item_is_group(layer):
+        if is_2dot8_up and pdb.gimp_item_is_group(layer):
             image += layer_process(layer.children, only_visible, dupe, path, flatten, remove_offsets, crop, inkscape_layers)
         if inkscape_layers:
             image += '</g>'
