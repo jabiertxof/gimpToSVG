@@ -6,6 +6,7 @@
 Copyright 2010 Erdem Guven
 Copyright 2009 Chris Mohler
 Copyright 2015 Jabiertxof
+Tested in Gimp 2.8
 
 Update to 0.3 code http://registry.gimp.org/node/25049
 Based on  http://registry.gimp.org/node/18440
