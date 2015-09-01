@@ -7,7 +7,7 @@ Copyright 2010 Erdem Guven
 Copyright 2009 Chris Mohler
 Copyright 2015 Jabiertxof
 
-Update to 0.2 code http://registry.gimp.org/node/25049
+Update to 0.3 code http://registry.gimp.org/node/25049
 Based on  http://registry.gimp.org/node/18440
 Dont upload in gimp registry because site in lockdown mode for spam
 Put the .py file in Gimp plugin folder and if linux make it executable
