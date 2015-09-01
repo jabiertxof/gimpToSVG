@@ -2,10 +2,11 @@
 ## Version 0.2
 ## License: GPL v3+
 ## Author: Erdem Guven <zuencap@yahoo.com>
-### Copyright 2010 Erdem Guven
-### Copyright 2009 Chris Mohler
-### Copyright 2015 Jabiertxof
 ```
+Copyright 2010 Erdem Guven
+Copyright 2009 Chris Mohler
+Copyright 2015 Jabiertxof
+
 Update to 0.2 code http://registry.gimp.org/node/25049
 Based on  http://registry.gimp.org/node/25049. 
 Dont upload in gimp registry because site in lockdown mode for spam
