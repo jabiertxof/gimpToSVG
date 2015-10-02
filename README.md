@@ -5,7 +5,7 @@
 ```
 Copyright 2010 Erdem Guven
 Copyright 2009 Chris Mohler
-Copyright 2015 Jabiertxof
+Copyright 2015 Jabiertxo Arraiza
 Tested in Gimp 2.8
 
 Install on GIMP: download the 2 .py files and put on plug-ins folder of Gimp. If linux, put the "gimp_..." file executable
