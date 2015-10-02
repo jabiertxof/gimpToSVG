@@ -8,7 +8,7 @@
 # "Groups" "Crop layer" introduced by Jabiertxof
 # "Export as text" "Flattern" "Offset" introduced by Jabiertxof from http://registry.gimp.org/node/18440 V0.6
 # License: GPL v3+
-# Version 0.4
+# Version 0.41
 # GIMP plugin to export as SVG
 
 from gimpfu import *
@@ -180,7 +180,7 @@ register(
         ],
     results=[],
     function=(export_as_svg), 
-    menu=("<Image>/File/Export/Export as"), 
+    menu=("<Image>/File/Export"), 
     domain=("gimp20-python", gimp.locale_directory)
     )
 
