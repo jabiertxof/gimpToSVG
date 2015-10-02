@@ -1,5 +1,5 @@
 # gimp-export-to-svg
-## Version: 0.4, License: GPL v3+, Author: Erdem Guven
+## Version: 0.4.1, License: GPL v3+, Author: Erdem Guven
 # pango-to-svg
 ## Version: 0.1, License: GPL v3+, Author: Jabiertxo Arraiza
 ```
