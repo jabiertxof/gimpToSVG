@@ -9,6 +9,7 @@ Copyright 2015 Jabiertxo Arraiza
 Tested in Gimp 2.8
 
 Install on GIMP: download the 2 .py files and put on plug-ins folder of Gimp. If linux, put the "gimp_..." file executable
+The plugin is located in File->Export menu
 
 Update to 0.4 code http://registry.gimp.org/node/25049
 Based on  http://registry.gimp.org/node/18440
