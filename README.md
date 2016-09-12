@@ -4,8 +4,8 @@
 ## Version: 0.2, License: GPL v3+, Author: Jabiertxo Arraiza
 
 ###Requeriments
--Gimp 2.8
--python-lxml and his requeriments. Thanks Geyup!
+- Gimp 2.8
+- python-lxml and his requeriments. Thanks Geyup!
 
 ###Install
 Install on GIMP: put the 3 .py files in the repo on Gimp plug-ins folder. 
@@ -19,10 +19,11 @@ Know issues in export as text:
 - Gimp fixed width box not fit perfect
 - Gimp indentation dont work
 
-####0.2 batch process.**
+####0.2 batch process.
 **Required**:
 - **origin**: directory of images to process
 - **dest**: path of output
+
 **Optional**:
 - **only_visible**: not export invisible layers
 - **flatten**: not made layers
@@ -31,6 +32,8 @@ Know issues in export as text:
 - **inkscape_layers**: add inkscape layers -a group with custom inkscape attribute
 - **text_layers**: Layers as text
 - **resolution_96**:96 DPI current svg DPI. False 90 DPI legacy SVG DPI
+
+To run from command line:
 ```
 gimp -i -b '(python-fu-batch-export-as-svg RUN-NONINTERACTIVE "_folder_input_" "_folder_output_" 0 0 0 0 1 1 1)' -b '(gimp-quit 0)'
 ```
