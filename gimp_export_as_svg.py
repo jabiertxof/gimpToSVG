@@ -131,7 +131,7 @@ def layer_process(layers, only_visible, dupe, path, flatten=False, remove_offset
         dupe.remove_layer(layer)
     return svg
 
-def export_as_svg(img, drw, path, only_visible=False, flatten=False, remove_offsets=False, crop=False, inkscape_layers=True, text_layers=True, resolution_96=True):
+def export_as_svg(img, path, only_visible=False, flatten=False, remove_offsets=False, crop=False, inkscape_layers=True, text_layers=True, resolution_96=True):
     imagename = get_image_name(img)
     dupe = img.duplicate()
     layers = get_layers(dupe.layers, only_visible)
@@ -168,7 +168,6 @@ register(
     imagetypes=("*"),
     params=[
         (PF_IMAGE, "img", "Image", None),
-        (PF_DRAWABLE, "drw", "Drawable", None),
         (PF_DIRNAME, "path", "Save PNGs here", os.getcwd()),
         (PF_BOOL, "only_visible", "Only Visible Layers?", False),
         (PF_BOOL, "flatten", "Flatten Images?", False),
