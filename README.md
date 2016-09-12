@@ -3,12 +3,12 @@
 
 ###Requeriments
 - Gimp 2.8
-- python-lxml and his requeriments.
+- python-lxml.
 
 ###Install
-Install on GIMP: put the tree ".py" files in the repo on Gimp plug-ins folder. 
-If linux, put the "gimp_..." files executables
-The plugin is located in File->Export->SVG menu
+Put the tree ".py" files in the repo on Gimp plug-ins folder.<br />
+If in linux, put the "gimp_..." files executables.<br />
+The plugin is located in File->Export->SVG menu.<br />
 
 ###Changelog
 ####0.4.2 Allow option to export text as text to the result SVG.**
@@ -20,22 +20,21 @@ Know issues in export as text:
 ####0.4.3 batch process.
 **Required**:
 - **origin**: directory of images to process
-- **dest**: path of output
+- **dest**: directory of output
 
 **Optional**:
 - **only_visible**: Boolean, not export invisible layers
 - **flatten**: Boolean, not made layers
-- **remove_offsets**: Boolean, remove offsets,
-- **crop**: Boolean, each image to data only,
+- **remove_offsets**: Boolean, remove offsets
+- **crop**: Boolean, each image to data only
 - **inkscape_layers**: Boolean, add inkscape layers -a group with custom inkscape attribute
 - **text_layers**: Boolean, Layers as text
 - **resolution_96**: Boolean,96 DPI current svg DPI. False 90 DPI legacy SVG DPI
 
 To run from command line:
 ```
-gimp -i -b '(python-fu-batch-export-as-svg RUN-NONINTERACTIVE "_folder_input_" "_folder_output_" 1 1 1 1 1 1 1)' -b '(gimp-quit 0)'
+gimp -i -b '(python-fu-batch-export-as-svg RUN-NONINTERACTIVE "_folder_input_" "_folder_output_" bool bool bool bool bool bool)' -b '(gimp-quit 0)'
 ```
-
 ####0.4.4 bug fixes.
 - Safe urls
 - Images in relative mode
