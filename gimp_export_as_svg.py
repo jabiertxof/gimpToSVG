@@ -16,20 +16,18 @@ import os, re, random, pango
 from lxml import etree
 from StringIO import StringIO
 from pango_to_svg import *
+import urllib
 
 gettext.install("gimp20-python", gimp.locale_directory, unicode=True)
 
 def format_filename(img, layer):
     imgname = img.name.decode('utf-8')
     layername = layer.name.decode('utf-8')
-    regex = re.compile("[^-\w]", re.UNICODE) 
-    filename = regex.sub('_', imgname) + '-' + regex.sub('_', layername) + '.png'
-    return filename
+    filename = imgname + '-' + layername + '.png'
+    return urllib.quote(filename)
 
 def get_image_name(img):
-    imgname = img.name.decode('utf-8')
-    regex = re.compile("[^-\w]", re.UNICODE) 
-    return regex.sub('_', imgname)
+    return urllib.quote(img.name)
 
 def get_layers(layers, only_visible):
     result = []
@@ -38,7 +36,7 @@ def get_layers(layers, only_visible):
             result.append(layer)
     return result
 
-def layer_process(layers, only_visible, dupe, path, flatten=False, remove_offsets=False, crop=False, inkscape_layers=True, text_layers=True, resolution_96=True):
+def layer_process(img, layers, only_visible, dupe, path, flatten=False, remove_offsets=False, crop=False, inkscape_layers=True, text_layers=True, resolution_96=True, block_images=False):
     svg = ""
     version = gimp.version[0:2]
     is_2dot8_up = version[0] >= 2 and version[1] >= 8
@@ -53,7 +51,11 @@ def layer_process(layers, only_visible, dupe, path, flatten=False, remove_offset
                 continue
         data = ""
         pdb.gimp_image_set_active_layer(dupe, layer)
-        filename = format_filename(dupe, layer)
+        if block_images:
+            image = pdb.gimp_image_get_uri(img)
+            filename = os.path.basename(image)
+        else:
+            filename = format_filename(dupe, layer)
         fullpath = os.path.join(path, filename);
         tmp = False
         if (not is_2dot8_up or not pdb.gimp_item_is_group(layer)) and (not pdb.gimp_item_is_text_layer(layer) or not text_layers):
@@ -61,13 +63,14 @@ def layer_process(layers, only_visible, dupe, path, flatten=False, remove_offset
             layer.visible = 1
             tmp = pdb.gimp_image_new(pdb.gimp_image_width(dupe), pdb.gimp_image_height(dupe), pdb.gimp_image_base_type(dupe))
             pdb.gimp_image_insert_layer(tmp, pdb.gimp_layer_new_from_drawable(pdb.gimp_image_get_active_drawable(dupe), tmp), None, 0)
-            if (flatten):
-                    tmp.flatten()
-            if (crop):
+            if flatten:
+                tmp.flatten()
+            if crop:
                 pdb.plug_in_autocrop_layer(tmp, tmp.layers[0])
-            if (remove_offsets):
+            if remove_offsets:
                 tmp.layers[0].set_offsets(0, 0) 
-            pdb.file_png_save(dupe, tmp.layers[0], fullpath, filename, 0, 9, 1, 1, 1, 1, 1)
+            if not block_images:
+                pdb.file_png_save(dupe, tmp.layers[0], fullpath, filename, 0, 9, 1, 1, 1, 1, 1)
             layer.visible = is_visible
         style=""
         if layer.opacity != 100.0:
@@ -81,7 +84,7 @@ def layer_process(layers, only_visible, dupe, path, flatten=False, remove_offset
             style = ""
         if (not is_2dot8_up or not pdb.gimp_item_is_group(layer)) and not pdb.gimp_item_is_text_layer(layer):
             data += ('<image xlink:href="%s" x="%d" y="%d" width="%d" height="%d" %s/>\n' % 
-                (fullpath,tmp.layers[0].offsets[0],tmp.layers[0].offsets[1],tmp.layers[0].width,tmp.layers[0].height,style))
+                (filename,tmp.layers[0].offsets[0],tmp.layers[0].offsets[1],tmp.layers[0].width,tmp.layers[0].height,style))
         if pdb.gimp_item_is_text_layer(layer) and text_layers:
             color = pdb.gimp_text_layer_get_color(layer)
             font_info = pango.FontDescription(pdb.gimp_text_layer_get_font(layer))
@@ -131,11 +134,38 @@ def layer_process(layers, only_visible, dupe, path, flatten=False, remove_offset
         dupe.remove_layer(layer)
     return svg
 
+def export_non_xcf_as_svg(img, dest, only_visible=False, flatten=False, remove_offsets=False, crop=False, inkscape_layers=True, text_layers=True, resolution_96=True):
+    image = pdb.gimp_image_get_uri(img)
+    imagename = os.path.basename(image)
+    dupe = img.duplicate()
+    layers = get_layers(dupe.layers, only_visible)
+    svg_procesed = layer_process(img, layers, only_visible, dupe, dest, flatten, remove_offsets, crop, inkscape_layers, text_layers, resolution_96, True)
+    svgpath = os.path.join(dest, imagename+".svg");
+    svgfile = open(svgpath, "w")
+    svgfile.write("""<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: GIMP export as svg plugin -->
+
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" """)
+    svgfile.write(' width="%dpx" height="%dpx" viewBox="0 0 %d %d" version="1.1">' % (img.width, img.height, img.width, img.height));
+    svgfile.write("""<defs id="defs2" />
+<sodipodi:namedview id="base" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:document-units="px" showgrid="false"  inkscape:window-maximized="1" />
+<metadata id="metadata5">
+<rdf:RDF>
+<cc:Work rdf:about="">
+<dc:format>image/svg+xml</dc:format>
+<dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+<dc:title></dc:title>
+</cc:Work>
+</rdf:RDF>
+</metadata>""");
+    svgfile.write(svg_procesed);
+    svgfile.write("</svg>");
+    
 def export_as_svg(img, dest, only_visible=False, flatten=False, remove_offsets=False, crop=False, inkscape_layers=True, text_layers=True, resolution_96=True):
     imagename = get_image_name(img)
     dupe = img.duplicate()
     layers = get_layers(dupe.layers, only_visible)
-    svg_procesed = layer_process(layers, only_visible, dupe, dest, flatten, remove_offsets, crop, inkscape_layers, text_layers, resolution_96)
+    svg_procesed = layer_process(img, layers, only_visible, dupe, dest, flatten, remove_offsets, crop, inkscape_layers, text_layers, resolution_96)
     svgpath = os.path.join(dest, imagename+".svg");
     svgfile = open(svgpath, "w")
     svgfile.write("""<?xml version="1.0" encoding="UTF-8" standalone="no"?>

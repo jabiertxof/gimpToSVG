@@ -1,7 +1,7 @@
 # gimp-export-to-svg
 ## Version: 0.4.1, License: GPL v3+, Author: Erdem Guven
 # pango-to-svg
-## Version: 0.2, License: GPL v3+, Author: Jabiertxo Arraiza
+## Version: 0.3, License: GPL v3+, Author: Jabiertxo Arraiza
 
 ###Requeriments
 - Gimp 2.8
@@ -32,6 +32,10 @@ Know issues in export as text:
 - **inkscape_layers**: add inkscape layers -a group with custom inkscape attribute
 - **text_layers**: Layers as text
 - **resolution_96**:96 DPI current svg DPI. False 90 DPI legacy SVG DPI
+
+####0.3 bug fixes.
+- Safe urls
+- Images in relative mode
 
 To run from command line:
 ```
