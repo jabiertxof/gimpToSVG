@@ -50,8 +50,8 @@ Copyright 2010 Erdem Guven
 Copyright 2009 Chris Mohler
 Copyright 2015 Jabiertxo Arraiza
 "Only Visible" and filename formatting introduced by mh
-"Retain visibility", "Layer Groups to nested Inkscape layers" "Crop layer" introduced by Jabiertxof
+"Retain visibility", "Layer Groups to nested Inkscape layers", "Crop layer" and "Export layer as text" introduced by Jabiertxof
 "Flattern" "Offset" introduced by Jabiertxof based on  http://registry.gimp.org/node/18440
-Update to 0.4 code http://registry.gimp.org/node/25049
+Updated to 0.4 code http://registry.gimp.org/node/25049
 Based on  http://registry.gimp.org/node/18440
-
+```
