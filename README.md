@@ -48,11 +48,7 @@ Change parameters to get desired output
 Copyright 2010 Erdem Guven
 Copyright 2009 Chris Mohler
 Copyright 2015 Jabiertxo Arraiza
-"Only Visible" and filename formatting introduced by mh
-"Retain visibility", "Layer Groups to nested Inkscape layers", "Crop layer" and "Export layer as text" introduced by Jabiertxof
-"Flattern" "Offset" introduced by Jabiertxof based on  http://registry.gimp.org/node/18440
-Updated to 0.4 code http://registry.gimp.org/node/25049
-Based on  http://registry.gimp.org/node/18440
+Based on  http://registry.gimp.org/node/18440 and http://registry.gimp.org/node/25049
 
 Thanks to Geyup, the first issuer of the proyect and the people came later like Haakon, I hope this code is useful to us
 ```
