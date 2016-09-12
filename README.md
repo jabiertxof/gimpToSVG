@@ -23,13 +23,18 @@ Know issues in export as text:
 - **dest**: path of output
 
 **Optional**:
-- **only_visible**: not export invisible layers
-- **flatten**: not made layers
-- **remove_offsets**:remove offsets,
-- **crop**: each image to data only,
-- **inkscape_layers**: add inkscape layers -a group with custom inkscape attribute
-- **text_layers**: Layers as text
-- **resolution_96**:96 DPI current svg DPI. False 90 DPI legacy SVG DPI
+- **only_visible**: Boolean, not export invisible layers
+- **flatten**: Boolean, not made layers
+- **remove_offsets**: Boolean, remove offsets,
+- **crop**: Boolean, each image to data only,
+- **inkscape_layers**: Boolean, add inkscape layers -a group with custom inkscape attribute
+- **text_layers**: Boolean, Layers as text
+- **resolution_96**: Boolean,96 DPI current svg DPI. False 90 DPI legacy SVG DPI
+
+To run from command line:
+```
+gimp -i -b '(python-fu-batch-export-as-svg RUN-NONINTERACTIVE "_folder_input_" "_folder_output_" 1 1 1 1 1 1 1)' -b '(gimp-quit 0)'
+```
 
 ####0.4.4 bug fixes.
 - Safe urls
@@ -38,11 +43,7 @@ Know issues in export as text:
 ####0.4.5 bug fix.
 - Fix a name bug on XCF exported layers
 
-To run from command line:
-```
-gimp -i -b '(python-fu-batch-export-as-svg RUN-NONINTERACTIVE "_folder_input_" "_folder_output_" 0 0 0 0 1 1 1)' -b '(gimp-quit 0)'
-```
-Change parameters to get desired output
+###Credits
 
 ```
 Copyright 2010 Erdem Guven
