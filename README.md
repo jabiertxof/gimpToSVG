@@ -5,10 +5,10 @@
 
 ###Requeriments
 - Gimp 2.8
-- python-lxml and his requeriments. Thanks Geyup!
+- python-lxml and his requeriments.
 
 ###Install
-Install on GIMP: put the 3 .py files in the repo on Gimp plug-ins folder. 
+Install on GIMP: put the tree ".py" files in the repo on Gimp plug-ins folder. 
 If linux, put the "gimp_..." files executables
 The plugin is located in File->Export->SVG menu
 
@@ -44,7 +44,8 @@ To run from command line:
 ```
 gimp -i -b '(python-fu-batch-export-as-svg RUN-NONINTERACTIVE "_folder_input_" "_folder_output_" 0 0 0 0 1 1 1)' -b '(gimp-quit 0)'
 ```
-Thanks Haakon!
+Change parameters to get desired output
+
 ```
 Copyright 2010 Erdem Guven
 Copyright 2009 Chris Mohler
@@ -54,4 +55,6 @@ Copyright 2015 Jabiertxo Arraiza
 "Flattern" "Offset" introduced by Jabiertxof based on  http://registry.gimp.org/node/18440
 Updated to 0.4 code http://registry.gimp.org/node/25049
 Based on  http://registry.gimp.org/node/18440
+
+Thanks to Geyup, the first issuer of the proyect and the people came later like Haakon, I hope this code is useful to us
 ```
