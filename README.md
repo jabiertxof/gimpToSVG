@@ -1,7 +1,5 @@
-# gimp-export-to-svg
-## Version: 0.4.1, License: GPL v3+, Author: Erdem Guven
-# pango-to-svg
-## Version: 0.3.1, License: GPL v3+, Author: Jabiertxo Arraiza
+# GimpToSVG
+## Version: 0.4.5, License: GPL v3+
 
 ###Requeriments
 - Gimp 2.8
@@ -13,13 +11,13 @@ If linux, put the "gimp_..." files executables
 The plugin is located in File->Export->SVG menu
 
 ###Changelog
-####0.1 Allow option to export text as text to the result SVG.**
+####0.4.2 Allow option to export text as text to the result SVG.**
 Know issues in export as text:
 - Text can be moved a bit
 - Gimp fixed width box not fit perfect
 - Gimp indentation dont work
 
-####0.2 batch process.
+####0.4.3 batch process.
 **Required**:
 - **origin**: directory of images to process
 - **dest**: path of output
@@ -33,11 +31,11 @@ Know issues in export as text:
 - **text_layers**: Layers as text
 - **resolution_96**:96 DPI current svg DPI. False 90 DPI legacy SVG DPI
 
-####0.3 bug fixes.
+####0.4.4 bug fixes.
 - Safe urls
 - Images in relative mode
 
-####0.3.1 bug fix.
+####0.4.5 bug fix.
 - Fix a name bug on XCF exported layers
 
 To run from command line:
@@ -58,3 +56,4 @@ Based on  http://registry.gimp.org/node/18440
 
 Thanks to Geyup, the first issuer of the proyect and the people came later like Haakon, I hope this code is useful to us
 ```
+
