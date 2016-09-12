@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # Copyright 2015 Jabiertxof
 # License: GPL v3+
-# Version 0.4.5
+# Version 0.3.2
 # Pango to SVG
 
 import os, re, random, pango, gtk, pangocairo, math

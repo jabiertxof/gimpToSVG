@@ -6,9 +6,9 @@
 # Copyright 2015 Jabiertxof
 # "Only Visible" and filename formatting introduced by mh
 # "Groups" "Crop layer" introduced by Jabiertxof
-# "Export as text" "Flattern" "Offset" introduced by Jabiertxof from http://registry.gimp.org/node/18440 V0.6
+# "Export as text" "Flattern" "Offset" introduced by Jabiertxof from http://registry.gimp.org/node/18440
 # License: GPL v3+
-# Version 0.4.5
+# Version 0.3.2
 # GIMP plugin to export as SVG
 
 from gimpfu import *

@@ -11,13 +11,15 @@ If in linux, put the "gimp_*" files executables.<br />
 The plugin is located in File->Export->SVG menu.<br />
 
 ###Changelog
-####0.4.2 Allow option to export text as text to the result SVG.**
+####0.1.0 Initial release
+Author: Erdem Guven and Chris Mohler [original code](http://registry.gimp.org/node/25049)
+####0.2.0 Allow option to export text as text to the result SVG.**
 Know issues in export as text:
 - Text can be moved a bit
 - Gimp fixed width box not fit perfect
 - Gimp indentation dont work
 
-####0.4.3 batch process.
+####0.3.0 batch process.
 **Required**:
 - **origin**: path, directory of images to process
 - **dest**: path, directory of output
@@ -35,11 +37,11 @@ To run from command line:
 ```
 gimp -i -b '(python-fu-batch-export-as-svg RUN-NONINTERACTIVE "origin_path" "dest_path" bool bool bool bool bool bool)' -b '(gimp-quit 0)'
 ```
-####0.4.4 bug fixes.
+####0.3.1 bug fixes.
 - Safe urls
 - Images in relative mode
 
-####0.4.5 bug fix.
+####0.3.2 bug fix.
 - Fix a name bug on XCF exported layers
 
 ###Credits
@@ -52,4 +54,5 @@ Based on  http://registry.gimp.org/node/18440 and http://registry.gimp.org/node/
 
 Thanks to Geyup, the first issuer of the proyect and the people came later like Haakon, I hope this code is useful to us
 ```
+
 
