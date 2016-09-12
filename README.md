@@ -1,5 +1,5 @@
 # GimpToSVG
-## Version: 0.4.5, License: GPL v3+
+## Version: 0.3.2, License: GPL v3+
 
 ###Requeriments
 - Gimp 2.8
