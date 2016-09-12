@@ -3,7 +3,7 @@
 
 ###Requeriments
 - Gimp 2.8
-- python-lxml.
+- python-lxml
 
 ###Install
 Put the tree ".py" files in the repo on Gimp plug-ins folder.<br />
@@ -23,13 +23,13 @@ Know issues in export as text:
 - **dest**: directory of output
 
 **Optional**:
-- **only_visible**: Boolean, not export invisible layers
-- **flatten**: Boolean, not made layers
-- **remove_offsets**: Boolean, remove offsets
-- **crop**: Boolean, each image to data only
-- **inkscape_layers**: Boolean, add inkscape layers -a group with custom inkscape attribute
-- **text_layers**: Boolean, Layers as text
-- **resolution_96**: Boolean,96 DPI current svg DPI. False 90 DPI legacy SVG DPI
+- **only_visible**: boolean, not export invisible layers
+- **flatten**: boolean, not made layers
+- **remove_offsets**: boolean, remove offsets
+- **crop**: boolean, each image to data only
+- **inkscape_layers**: boolean, add inkscape layers -a group with custom inkscape attribute
+- **text_layers**: boolean, Layers as text
+- **resolution_96**: boolean,96 DPI current svg DPI. False 90 DPI legacy SVG DPI
 
 To run from command line:
 ```
