@@ -1,7 +1,7 @@
 # gimp-export-to-svg
 ## Version: 0.4.1, License: GPL v3+, Author: Erdem Guven
 # pango-to-svg
-## Version: 0.1, License: GPL v3+, Author: Jabiertxo Arraiza
+## Version: 0.2, License: GPL v3+, Author: Jabiertxo Arraiza
 ```
 Copyright 2010 Erdem Guven
 Copyright 2009 Chris Mohler
@@ -11,6 +11,10 @@ Tested in Gimp 2.8
 Install on GIMP: download the 2 .py files and put on plug-ins folder of Gimp. If linux, put the "gimp_..." file executable
 The plugin is located in File->Export menu
 Need python-lxml. Thanks Geyup for the first issue.
+
+Added on 0.2 batch process. To run from command line
+gimp -i -b '(python-fu-batch-export-as-svg RUN-NONINTERACTIVE "_folder_input_" "_folder_output_" 0 0 0 0 1 1 1)' -b '(gimp-quit 0)'
+Thanks Haakon!
 
 Update to 0.4 code http://registry.gimp.org/node/25049
 Based on  http://registry.gimp.org/node/18440

@@ -131,12 +131,12 @@ def layer_process(layers, only_visible, dupe, path, flatten=False, remove_offset
         dupe.remove_layer(layer)
     return svg
 
-def export_as_svg(img, path, only_visible=False, flatten=False, remove_offsets=False, crop=False, inkscape_layers=True, text_layers=True, resolution_96=True):
+def export_as_svg(img, dest, only_visible=False, flatten=False, remove_offsets=False, crop=False, inkscape_layers=True, text_layers=True, resolution_96=True):
     imagename = get_image_name(img)
     dupe = img.duplicate()
     layers = get_layers(dupe.layers, only_visible)
-    svg_procesed = layer_process(layers, only_visible, dupe, path, flatten, remove_offsets, crop, inkscape_layers, text_layers, resolution_96)
-    svgpath = os.path.join(path, imagename+".svg");
+    svg_procesed = layer_process(layers, only_visible, dupe, dest, flatten, remove_offsets, crop, inkscape_layers, text_layers, resolution_96)
+    svgpath = os.path.join(dest, imagename+".svg");
     svgfile = open(svgpath, "w")
     svgfile.write("""<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Generator: GIMP export as svg plugin -->
@@ -160,7 +160,7 @@ def export_as_svg(img, path, only_visible=False, flatten=False, remove_offsets=F
 register(
     proc_name=("python-fu-export-as-svg"),
     blurb=("Export as SVG"),
-    help=("Export an svg file and an individual PNG file per layer."),
+    help=("Export to SVG."),
     author=("Erdem Guven <zuencap@yahoo.com>"),
     copyright=("Erdem Guven"),
     date=("2015"),
@@ -168,7 +168,7 @@ register(
     imagetypes=("*"),
     params=[
         (PF_IMAGE, "img", "Image", None),
-        (PF_DIRNAME, "path", "Save PNGs here", os.getcwd()),
+        (PF_DIRNAME, "dest", "Save here", os.getcwd()),
         (PF_BOOL, "only_visible", "Only Visible Layers?", False),
         (PF_BOOL, "flatten", "Flatten Images?", False),
         (PF_BOOL, "remove_offsets", "Remove Offsets?", False),
@@ -179,8 +179,8 @@ register(
         ],
     results=[],
     function=(export_as_svg), 
-    menu=("<Image>/File/Export"), 
+    menu=("<Image>/File/Export/SVG/"), 
     domain=("gimp20-python", gimp.locale_directory)
     )
 
-main()
+if __name__=='__main__': main()
