@@ -21,9 +21,7 @@ import urllib
 gettext.install("gimp20-python", gimp.locale_directory, unicode=True)
 
 def format_filename(img, layer):
-    imgname = img.name.decode('utf-8')
-    layername = layer.name.decode('utf-8')
-    filename = imgname + '-' + layername + '.png'
+    filename = img.name + '-' + layer.name + '.png'
     return urllib.quote(filename)
 
 def get_image_name(img):
@@ -55,7 +53,7 @@ def layer_process(img, layers, only_visible, dupe, path, flatten=False, remove_o
             image = pdb.gimp_image_get_uri(img)
             filename = os.path.basename(image)
         else:
-            filename = format_filename(dupe, layer)
+            filename = format_filename(img, layer)
         fullpath = os.path.join(path, filename);
         tmp = False
         if (not is_2dot8_up or not pdb.gimp_item_is_group(layer)) and (not pdb.gimp_item_is_text_layer(layer) or not text_layers):

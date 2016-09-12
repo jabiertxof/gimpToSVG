@@ -1,7 +1,7 @@
 # gimp-export-to-svg
 ## Version: 0.4.1, License: GPL v3+, Author: Erdem Guven
 # pango-to-svg
-## Version: 0.3, License: GPL v3+, Author: Jabiertxo Arraiza
+## Version: 0.3.1, License: GPL v3+, Author: Jabiertxo Arraiza
 
 ###Requeriments
 - Gimp 2.8
@@ -36,6 +36,9 @@ Know issues in export as text:
 ####0.3 bug fixes.
 - Safe urls
 - Images in relative mode
+
+####0.3.1 bug fix.
+- Fix a name bug on XCF exported layers
 
 To run from command line:
 ```
