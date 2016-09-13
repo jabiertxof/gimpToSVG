@@ -51,7 +51,7 @@ To run from command line:
 gimp -i -b '(python-fu-batch-export-as-svg RUN-NONINTERACTIVE "origin_path" "dest_path" bool bool bool bool bool bool)' -b '(gimp-quit 0)'
 ```
 ###0.3.1 bug fixes.
-- Safe urls
+- Safe URLs
 - Images in relative mode
 
 ###0.3.2 bug fix.
@@ -68,7 +68,7 @@ Copyright 2009 Chris Mohler
 Copyright 2015 Jabiertxo Arraiza
 Based on  http://registry.gimp.org/node/18440 and http://registry.gimp.org/node/25049
 
-Thanks to Geyup, the first issuer of the proyect and the people came later like Haakon, I hope this code is useful to us
+Thanks to Geyup, the first issuer of the project and to the contributors who came later like Haakon. I hope this code is useful to you.
 ```
 
 
