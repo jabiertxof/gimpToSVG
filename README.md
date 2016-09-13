@@ -26,7 +26,7 @@ Important, be sure all files has correct mimetypes, if not want a error.
 - python-lxml
 
 ##Installation
-Copy the three "*.py" files from the git repository's working copy to
+Copy the three "\*.py" files from the git repository's working copy to
 Gimp’s plug-ins folder.<br />
 If on a Unix-like system, make the "gimp_*" files executables.<br />
 The plugin can be invoked from the File->Export->SVG menu.<br />
