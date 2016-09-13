@@ -3,7 +3,7 @@
 # Author: Jabiertxof <jabier.arraiza@marker.es>
 # Copyright 2015 Jabiertxof
 # License: GPL v3+
-# Version 0.3.3
+# Version 0.3.4
 # GIMP batch plugin to export as SVG
 
 from gimpfu import *
@@ -11,39 +11,61 @@ import os
 from gimp_export_as_svg import *
 from shutil import copyfile
 
-def batch_export_as_svg(origin, dest, only_visible=False, flatten=False, remove_offsets=False, crop=False, inkscape_layers=True, text_layers=True, resolution_96=True, block_images=False):
+def batch_export_as_svg(origin, dest, only_visible=False, flatten=False, remove_offsets=False, crop=False, inkscape_layers=True, text_layers=True, resolution_96=True, urlencode_files= True):
     #export_as_svg(img, path, only_visible, flatten, remove_offsets, crop, inkscape_layers, text_layers, resolution_96)
     allFileList = os.listdir(origin)
     for fname in allFileList:
         fnameLow = fname.lower()
         if os.path.splitext(fname)[1] == '.xcf':
             img = pdb.gimp_xcf_load(1, os.path.join(origin, fname), fname)
-            export_as_svg(img, dest, only_visible, flatten, remove_offsets, crop, inkscape_layers, text_layers, resolution_96)
-        if os.path.splitext(fname)[1] == '.jpg' or os.path.splitext(fname)[1] == '.jpeg' :
+            export_as_svg(img, dest, only_visible, flatten, remove_offsets, crop, inkscape_layers, text_layers, resolution_96, urlencode_files)
+        if os.path.splitext(fname)[1] == '.jpeg' :
             img = pdb.file_jpeg_load(os.path.join(origin, fname), fname)
             image = pdb.gimp_image_get_uri(img)
+            if not urlencode_files:
+                image = img.name.decode('utf-8')
             copyfile(os.path.join(origin, fname),os.path.join(dest, os.path.basename(image)))
-            export_non_xcf_as_svg(img, dest, only_visible, flatten, remove_offsets, crop, inkscape_layers, text_layers, resolution_96)
+            export_non_xcf_as_svg(img, dest, only_visible, flatten, remove_offsets, crop, inkscape_layers, text_layers, resolution_96, urlencode_files)
+        if os.path.splitext(fname)[1] == '.jpg':
+            img = pdb.file_jpeg_load(os.path.join(origin, fname), fname)
+            image = pdb.gimp_image_get_uri(img)
+            if not urlencode_files:
+                image = img.name.decode('utf-8')
+            copyfile(os.path.join(origin, fname),os.path.join(dest, os.path.basename(image)))
+            export_non_xcf_as_svg(img, dest, only_visible, flatten, remove_offsets, crop, inkscape_layers, text_layers, resolution_96, urlencode_files)
         if os.path.splitext(fname)[1] == '.bmp':
             img = pdb.file_bmp_load(os.path.join(origin, fname), fname)
             image = pdb.gimp_image_get_uri(img)
+            if not urlencode_files:
+                image = img.name.decode('utf-8')
             copyfile(os.path.join(origin, fname),os.path.join(dest, os.path.basename(image)))
-            export_non_xcf_as_svg(img, dest, only_visible, flatten, remove_offsets, crop, inkscape_layers, text_layers, resolution_96)
+            export_non_xcf_as_svg(img, dest, only_visible, flatten, remove_offsets, crop, inkscape_layers, text_layers, resolution_96, urlencode_files)
         if os.path.splitext(fname)[1] == '.png':
             img = pdb.file_png_load(os.path.join(origin, fname), fname)
             image = pdb.gimp_image_get_uri(img)
+            if not urlencode_files:
+                image = img.name.decode('utf-8')
             copyfile(os.path.join(origin, fname),os.path.join(dest, os.path.basename(image)))
-            export_non_xcf_as_svg(img, dest, only_visible, flatten, remove_offsets, crop, inkscape_layers, text_layers, resolution_96)
+            export_non_xcf_as_svg(img, dest, only_visible, flatten, remove_offsets, crop, inkscape_layers, text_layers, resolution_96, urlencode_files)
         if os.path.splitext(fname)[1] == '.gif':
             img = pdb.file_gif_load(os.path.join(origin, fname), fname)
             image = pdb.gimp_image_get_uri(img)
+            if not urlencode_files:
+                image = img.name.decode('utf-8')
             copyfile(os.path.join(origin, fname),os.path.join(dest, os.path.basename(image)))
-            export_non_xcf_as_svg(img, dest, only_visible, flatten, remove_offsets, crop, inkscape_layers, text_layers, resolution_96)
-        if os.path.splitext(fname)[1] == '.tif' or os.path.splitext(fname)[1] == '.tiff':
+            export_non_xcf_as_svg(img, dest, only_visible, flatten, remove_offsets, crop, inkscape_layers, text_layers, resolution_96, urlencode_files)
+        if os.path.splitext(fname)[1] == '.tif':
             img = pdb.file_tiff_load(os.path.join(origin, fname), fname)
             image = pdb.gimp_image_get_uri(img)
+            if not urlencode_files:
+                image = img.name.decode('utf-8')
+        if os.path.splitext(fname)[1] == '.tiff':
+            img = pdb.file_tiff_load(os.path.join(origin, fname), fname)
+            image = pdb.gimp_image_get_uri(img)
+            if not urlencode_files:
+                image = img.name.decode('utf-8')
             copyfile(os.path.join(origin, fname),os.path.join(dest, os.path.basename(image)))
-            export_non_xcf_as_svg(img, dest, only_visible, flatten, remove_offsets, crop, inkscape_layers, text_layers, resolution_96)
+            export_non_xcf_as_svg(img, dest, only_visible, flatten, remove_offsets, crop, inkscape_layers, text_layers, resolution_96, urlencode_files)
             
 register(
     proc_name=("python-fu-batch-export-as-svg"),
@@ -64,6 +86,7 @@ register(
         (PF_BOOL, "inkscape_layers", "Create Inkscape Layers?", True),
         (PF_BOOL, "text_layers", "Retain text layers as text?", True),
         (PF_BOOL, "resolution_96", "Use new SVG 96DPI resolution?", True),
+        (PF_BOOL, "urlencode_files", "URL encode file names", True),
         ],
     results=[],
     function=(batch_export_as_svg), 

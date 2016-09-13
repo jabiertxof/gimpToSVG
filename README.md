@@ -1,5 +1,5 @@
 # gimpToSVG
-Version: 0.3.3, License: GPL v3-or-later
+Version: 0.3.4, License: GPL v3-or-later
 
 ##Objective
 **Normal mode:**
@@ -45,6 +45,7 @@ Added [pangoToSVG](https://github.com/jabiertxof/pangoToSVG). See know issues in
 - **inkscape_layers**: bool, add inkscape layers -a group with custom inkscape attribute
 - **text_layers**: bool, Layers as text
 - **resolution_96**: bool,96 DPI current svg DPI. False 90 DPI legacy SVG DPI
+- **urlencode_files**: bool, Files are URL encoded
 
 To run from command line:
 ```
@@ -60,6 +61,9 @@ gimp -i -b '(python-fu-batch-export-as-svg RUN-NONINTERACTIVE "origin_path" "des
 ###0.3.3 bug fix.
 - Remove warning duplicate pdb.
 
+###0.3.4 add optional URL encode.
+- Add a optional URL encode to file names.
+
 ##Credits
 
 ```
@@ -70,4 +74,3 @@ Copyright 2015 Jabiertxo Arraiza
 Based on  http://registry.gimp.org/node/18440 and http://registry.gimp.org/node/25049<br />
 Thanks to Geyup, the first issuer of the project and to the contributors who came later like Haakon.<br />
 Thanks to [Shlomi Fish](http://www.shlomifish.org) for helping me on my english on README.md.
-
