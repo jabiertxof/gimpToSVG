@@ -101,10 +101,9 @@ def layer_process(img, layers, only_visible, dupe, path, flatten=False, remove_o
                 markup = "<markup>" + pdb.gimp_text_layer_get_text(pdb.gimp_image_get_active_drawable(dupe)) + "<markup>"
             fontsize = pdb.gimp_text_layer_get_font_size(layer)
             factor = pdb.gimp_unit_get_factor(fontsize[1])
+            hackToTypoGr = 1.0
             if fontsize[1] < 9:
                 hackToTypoGr =72.2/72.0
-            else:
-                hackToTypoGr = 1.0
             if fontsize:
                 if factor > 0:
                     container_font_size = (fontsize[0] / (factor/resolution)) * hackToTypoGr
@@ -112,10 +111,9 @@ def layer_process(img, layers, only_visible, dupe, path, flatten=False, remove_o
                     container_font_size = math.floor(fontsize[0] * hackToTypoGr)
             container_letter_spacing = pdb.gimp_text_layer_get_letter_spacing(layer)
             direction = pdb.gimp_text_layer_get_base_direction(layer)
+            containerDirection = "rtl"
             if direction is 0:
                 containerDirection = "ltr"
-            else:
-                containerDirection = "rtl"
             svg_text = PangoToSVG(markup)
             svg_text.setContainerLineHeight(container_line_height)
             svg_text.setContainerLetterSpacing(container_letter_spacing)
