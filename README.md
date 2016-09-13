@@ -11,6 +11,7 @@ Main features:
 - Recreate layers of any depth (Inkscape)
 - Export text as a text element or as an image
 - Optional legacy and current SVG 96DPI mode.
+- Optional URL encode file names
 
 **Batch mode:**
 - All the previous features
