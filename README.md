@@ -56,8 +56,8 @@ gimp -i -b '(python-fu-batch-export-as-svg RUN-NONINTERACTIVE "origin_path" "des
 ###0.3.2 bug fix.
 - Fix a name bug on XCF exported layers
 
-###0.3.3 remove warning duplicate pdb.
-- Fix a name bug on XCF exported layers
+###0.3.3 bug fix.
+- Remove warning duplicate pdb.
 
 ##Credits
 
