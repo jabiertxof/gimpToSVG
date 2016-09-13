@@ -36,7 +36,7 @@ The plugin can be invoked from the File->Export->SVG menu.<br />
 ###0.1.0 Initial release
 Author: Erdem Guven and Chris Mohler [original code](http://registry.gimp.org/node/25049)
 ###0.2.0 Allow option to export text as text to the result SVG.**
-Added [pangoToSVG](https://github.com/jabiertxof/pangoToSVG). See know issues in this git
+Added [pangoToSVG](https://github.com/jabiertxof/pangoToSVG). See know issues in this github link
 ###0.3.0 Add batch process.
 **Required**:
 - **origin**: path, directory of images to process
