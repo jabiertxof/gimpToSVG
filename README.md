@@ -32,7 +32,7 @@ The plugin can be invoked from the File->Export->SVG menu.<br />
 Author: Erdem Guven and Chris Mohler [original code](http://registry.gimp.org/node/25049)
 ###0.2.0 Allow option to export text as text to the result SVG.**
 Added [pangoToSVG](https://github.com/jabiertxof/pangoToSVG). See know issues in this git
-###0.3.0 batch process.
+###0.3.0 Add batch process.
 **Required**:
 - **origin**: path, directory of images to process
 - **dest**: path, directory of output
@@ -51,21 +51,20 @@ To run from command line:
 ```
 gimp -i -b '(python-fu-batch-export-as-svg RUN-NONINTERACTIVE "origin_path" "dest_path" bool bool bool bool bool bool bool bool)' -b '(gimp-quit 0)'
 ```
-###0.3.1 bug fixes.
+###0.3.1 Bugs fix.
 - Safe URLs
 - Images in relative mode
 
-###0.3.2 bug fix.
+###0.3.2 Bug fix.
 - Fix a name bug on XCF exported layers
 
-###0.3.3 bug fix.
+###0.3.3 Bug fix.
 - Remove warning duplicate pdb.
 
-###0.3.4 add optional URL encode.
+###0.3.4 Add optional URL encode.
 - Add a optional URL encode to file names.
 
 ##Credits
-
 ```
 Copyright 2010 Erdem Guven
 Copyright 2009 Chris Mohler
@@ -73,4 +72,4 @@ Copyright 2015 Jabiertxo Arraiza
 ```
 Based on  http://registry.gimp.org/node/18440 and http://registry.gimp.org/node/25049<br />
 Thanks to Geyup, the first issuer of the project and to the contributors who came later like Haakon.<br />
-Thanks to [Shlomi Fish](http://www.shlomifish.org) for helping me on my english on README.md.
+Thanks to [Shlomi Fish](http://www.shlomifish.org) for helping me on my english.
