@@ -18,8 +18,6 @@ from StringIO import StringIO
 from pango_to_svg import *
 import urllib
 
-gettext.install("gimp20-python", gimp.locale_directory, unicode=True)
-
 def format_filename(img, layer):
     filename = img.name + '-' + layer.name + '.png'
     return urllib.quote(filename)
@@ -207,8 +205,7 @@ register(
         ],
     results=[],
     function=(export_as_svg), 
-    menu=("<Image>/File/Export/SVG/"), 
-    domain=("gimp20-python", gimp.locale_directory)
+    menu=("<Image>/File/Export/SVG/")
     )
 
 if __name__=='__main__': main()

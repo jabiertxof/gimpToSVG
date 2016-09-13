@@ -11,8 +11,6 @@ import os
 from gimp_export_as_svg import *
 from shutil import copyfile
 
-gettext.install("gimp20-python", gimp.locale_directory, unicode=True)
-
 def batch_export_as_svg(origin, dest, only_visible=False, flatten=False, remove_offsets=False, crop=False, inkscape_layers=True, text_layers=True, resolution_96=True, block_images=False):
     #export_as_svg(img, path, only_visible, flatten, remove_offsets, crop, inkscape_layers, text_layers, resolution_96)
     allFileList = os.listdir(origin)
@@ -69,8 +67,7 @@ register(
         ],
     results=[],
     function=(batch_export_as_svg), 
-    menu=("<Image>/File/Export/SVG/"), 
-    domain=("gimp20-python", gimp.locale_directory)
+    menu=("<Image>/File/Export/SVG/")
     )
 
 main()
