@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # Copyright 2015 Jabiertxof
 # License: GPL v3+
-# Version 0.1.0
+# Version 0.1.1
 # Pango to SVG
 # https://github.com/jabiertxof/pangoToSVG
 
@@ -11,7 +11,6 @@ import lxml.etree as etree
 from StringIO import StringIO
 
 class PangoToSVG:
-    
     def __init__(self, markup):
         self.SVG = ""
         self.markup = markup
@@ -340,29 +339,3 @@ class PangoToSVG:
             previous_start = attr.start_index
             previous_end = attr.end_index
         return data
-
-'''
-pango_markup = """<markup><span font="HVD Poster">fsdhdfs</span><span foreground="#8f8818"><span size="35840"><span font="Acknowledgement Medium"><b>df</b></span></span></span><span size="35840"><span font="Acknowledgement Medium"><span foreground="#8f4d18"><u>hs</u>df<s>h</s></span><span foreground="#8f8818">fhdh</span></span></span><span font="Acknowledgement Medium">df</span>a<span font="Hello Larry"><span foreground="#8f8818"><span size="35840">
-</span></span></span><span foreground="#8f8818"><span size="35840"><span font="Acknowledgement Medium">sfh<span rise="6144">ash</span><span letter_spacing="102400">⁠</span><span rise="1024">af</span></span></span></span><span rise="1024">
-<span font="HVD Poster">shash
-<b>fsf</b>h
-ashhf<span foreground="#ff0000">hhffcñññoasééúodfhs</span>hh<s>hfshh</s>fhf
-
-<i>fhh</i>fahffhfhhf
-fhahffh<u>sfh</u></span></span></markup>"""
-
-svg = PangoToSVG(pango_markup)
-#svg.setElementContainer("text")
-#svg.setContainerLineHeight(10)
-#svg.setContainerLetterSpacing(10)
-#svg.setContainerDirection("ltr")
-#svg.setContainerOffsetX(200)
-#svg.setContainerOffsetY(100)
-#svg.setContainerFont(pango.FontDescription("serif"))
-#svg.setContainerFontSize(12)
-#svg.setContainerColor([0,0,0,255])
-#svg.setInputResolution(96)
-#svg.setOutputResolution(96.0)
-data = svg.parse()
-print svg.parse()
-'''
