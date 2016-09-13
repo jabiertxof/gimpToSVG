@@ -1,5 +1,5 @@
 # gimpToSVG
-Version: 0.3.4, License: GPL v3-or-later
+Version: 0.3.5, License: GPL v3-or-later
 
 ##Objective
 **Normal mode:**
@@ -47,13 +47,14 @@ Added [pangoToSVG](https://github.com/jabiertxof/pangoToSVG). See know issues in
 - **remove_offsets**: bool, default 0, remove offsets
 - **crop**: bool, default 0, each image to data only
 - **inkscape_layers**: bool, default 1, add inkscape layers -a group with custom inkscape attribute
-- **text_layers**: bool, default 1, Layers as text
-- **resolution_96**: bool, default 1,96 DPI current svg DPI. False 90 DPI legacy SVG DPI
-- **urlencode_files**: bool, default 1, Files are URL encoded
+- **text_layers**: bool, default 1, layers as text
+- **resolution_96**: bool, default 1, 96 DPI current svg DPI. False 90 DPI legacy SVG DPI
+- **urlencode_files**: bool, default 1, files are URL encoded
+- **strip_extension** bool, default 0, remove original extension !this can be wrong on files with the same name and diferent extension
 
 To run from command line:
 ```
-gimp -i -b '(python-fu-batch-export-as-svg RUN-NONINTERACTIVE "origin_path" "dest_path" bool bool bool bool bool bool bool bool)' -b '(gimp-quit 0)'
+gimp -i -b '(python-fu-batch-export-as-svg RUN-NONINTERACTIVE "origin_path" "dest_path" bool bool bool bool bool bool bool bool bool)' -b '(gimp-quit 0)'
 ```
 ###0.3.1 Bugs fix.
 - Safe URLs
@@ -65,8 +66,11 @@ gimp -i -b '(python-fu-batch-export-as-svg RUN-NONINTERACTIVE "origin_path" "des
 ###0.3.3 Bug fix.
 - Remove warning duplicate pdb.
 
-###0.3.4 Add optional URL encode.
+###0.3.4 Add, optional, URL encode.
 - Add a optional URL encode to file names.
+
+###0.3.5 Add, optional, strip original extension.
+- Strip original extension from output.
 
 ##Credits
 ```
