@@ -1,21 +1,21 @@
 # gimpToSVG
-Version: 0.3.3, License: GPL v3+
+Version: 0.3.3, License: GPL v3-or-later
 
-##Objetive
+##Objective
 **Normal mode:**
-Convert current Gimp document to a SVG.
+Convert the current Gimp document to an SVG file.
 Main features:
-- Optional export hidden layers
+- Optionaly export hidden layers
 - Flatten all layers to one image only
-- Crop each image layer to the size of the layer and positioning it in the image location
-- Recreate layers of any deep (Inkscape)
-- Eport text as text or as image
-- Optional legacy and current SVG 96DPI
+- Crop each image layer to the size of the layer and position it in the proper location within the image
+- Recreate layers of any depth (Inkscape)
+- Export text as a text element or as an image
+- Optional legacy and current SVG 96DPI mode.
 
 **Batch mode:**
-- All previous features with XCF files found
-- Also wrap into SVG png, jpg, tiff, bmp and gif files
-- Work insde Gimp or in command line
+- All the previous features
+- Also wrap into SVG PNG, JPG, TIFF, BMP and GIF files
+- Work inside Gimp or on the command line
 
 ##Requeriments
 - Gimp 2.8
