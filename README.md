@@ -17,7 +17,9 @@ Main features:
 - All the previous features
 - Also wrap into SVG PNG, JPG, TIFF, BMP and GIF files
 - Work inside Gimp or on the command line
-- Important, be sure all filles has his correct mimetypes, if not want a error. Ex: identify *.gif|grep -v GIF | wc -l
+
+Important, be sure all files has correct mimetypes, if not want a error. 
+> identify *.gif|grep -v GIF | wc -l
 
 ##Requirements
 - Gimp 2.8
