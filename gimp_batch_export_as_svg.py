@@ -3,7 +3,7 @@
 # Author: Jabiertxof <jabier.arraiza@marker.es>
 # Copyright 2015 Jabiertxof
 # License: GPL v3+
-# Version 0.3.2
+# Version 0.3.3
 # GIMP batch plugin to export as SVG
 
 from gimpfu import *

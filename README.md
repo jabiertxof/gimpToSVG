@@ -1,5 +1,5 @@
 # gimpToSVG
-Version: 0.3.2, License: GPL v3+
+Version: 0.3.3, License: GPL v3+
 
 ##Objetive
 **Normal mode:**
@@ -54,6 +54,9 @@ gimp -i -b '(python-fu-batch-export-as-svg RUN-NONINTERACTIVE "origin_path" "des
 - Images in relative mode
 
 ###0.3.2 bug fix.
+- Fix a name bug on XCF exported layers
+
+###0.3.3 remove warning duplicate pdb.
 - Fix a name bug on XCF exported layers
 
 ##Credits
