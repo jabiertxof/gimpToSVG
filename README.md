@@ -17,14 +17,15 @@ Main features:
 - Also wrap into SVG PNG, JPG, TIFF, BMP and GIF files
 - Work inside Gimp or on the command line
 
-##Requeriments
+##Requirements
 - Gimp 2.8
 - python-lxml
 
-##Install
-Put the tree ".py" files in the repo on Gimp plug-ins folder.<br />
-If in linux, put the "gimp_*" files executables.<br />
-The plugin is located in File->Export->SVG menu.<br />
+##Installation
+Copy the three "*.py" files from the git repository's working copy to
+Gimp’s plug-ins folder.<br />
+If on a Unix-like system, make the "gimp_*" files executables.<br />
+The plugin can be invoked from the File->Export->SVG menu.<br />
 
 ##Changelog
 ###0.1.0 Initial release
