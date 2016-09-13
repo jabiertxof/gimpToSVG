@@ -1,30 +1,31 @@
 # gimpToSVG
-Version: 0.3.3, License: GPL v3+
+Version: 0.3.3, License: GPL v3-or-later
 
-##Objetive
+##Objective
 **Normal mode:**
-Convert current Gimp document to a SVG.
+Convert the current Gimp document to an SVG file.
 Main features:
-- Optional export hidden layers
+- Optionaly export hidden layers
 - Flatten all layers to one image only
-- Crop each image layer to the size of the layer and positioning it in the image location
-- Recreate layers of any deep (Inkscape)
-- Eport text as text or as image
-- Optional legacy and current SVG 96DPI
+- Crop each image layer to the size of the layer and position it in the proper location within the image
+- Recreate layers of any depth (Inkscape)
+- Export text as a text element or as an image
+- Optional legacy and current SVG 96DPI mode.
 
 **Batch mode:**
-- All previous features with XCF files found
-- Also wrap into SVG png, jpg, tiff, bmp and gif files
-- Work insde Gimp or in command line
+- All the previous features
+- Also wrap into SVG PNG, JPG, TIFF, BMP and GIF files
+- Work inside Gimp or on the command line
 
-##Requeriments
+##Requirements
 - Gimp 2.8
 - python-lxml
 
-##Install
-Put the tree ".py" files in the repo on Gimp plug-ins folder.<br />
-If in linux, put the "gimp_*" files executables.<br />
-The plugin is located in File->Export->SVG menu.<br />
+##Installation
+Copy the three "*.py" files from the git repository's working copy to
+Gimp’s plug-ins folder.<br />
+If on a Unix-like system, make the "gimp_*" files executables.<br />
+The plugin can be invoked from the File->Export->SVG menu.<br />
 
 ##Changelog
 ###0.1.0 Initial release
@@ -50,7 +51,7 @@ To run from command line:
 gimp -i -b '(python-fu-batch-export-as-svg RUN-NONINTERACTIVE "origin_path" "dest_path" bool bool bool bool bool bool)' -b '(gimp-quit 0)'
 ```
 ###0.3.1 bug fixes.
-- Safe urls
+- Safe URLs
 - Images in relative mode
 
 ###0.3.2 bug fix.
@@ -67,7 +68,7 @@ Copyright 2009 Chris Mohler
 Copyright 2015 Jabiertxo Arraiza
 Based on  http://registry.gimp.org/node/18440 and http://registry.gimp.org/node/25049
 
-Thanks to Geyup, the first issuer of the proyect and the people came later like Haakon, I hope this code is useful to us
+Thanks to Geyup, the first issuer of the project and to the contributors who came later like Haakon. I hope this code is useful to you.
 ```
 
 
