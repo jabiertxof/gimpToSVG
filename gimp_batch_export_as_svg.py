@@ -3,7 +3,7 @@
 # Author: Jabiertxof <jabier.arraiza@marker.es>
 # Copyright 2015 Jabiertxof
 # License: GPL v3+
-# Version 0.3.5
+# Version 0.3.6
 # GIMP batch plugin to export as SVG
 
 from gimpfu import *
@@ -78,7 +78,7 @@ register(
     copyright=("Jabiertxof <jabier.arraiza@marker.es>"),
     date=("2016"),
     label=("Batch export as SVG"),
-    imagetypes=("*"),
+    imagetypes=None,
     params=[
         (PF_DIRNAME, "origin", "Images to process", os.getcwd()),
         (PF_DIRNAME, "dest", "Save here", os.getcwd()),

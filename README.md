@@ -1,5 +1,5 @@
 # gimpToSVG
-Version: 0.3.5, License: GPL v3-or-later
+Version: 0.3.6, License: GPL v3-or-later
 
 ##Objective
 **Normal mode:**
@@ -72,6 +72,9 @@ gimp -i -b '(python-fu-batch-export-as-svg RUN-NONINTERACTIVE "origin_path" "des
 
 ###0.3.5 Add, optional, strip original extension.
 - Strip original extension from output.
+
+###0.3.6 Allow batch process inside Gimp.
+- Allow batch process inside Gimp whitout opening files
 
 ##Credits
 ```

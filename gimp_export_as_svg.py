@@ -8,7 +8,7 @@
 # "Groups" "Crop layer" introduced by Jabiertxof
 # "Export as text" "Flattern" "Offset" introduced by Jabiertxof from http://registry.gimp.org/node/18440
 # License: GPL v3+
-# Version 0.3.5
+# Version 0.3.6
 # GIMP plugin to export as SVG
 
 from gimpfu import *
