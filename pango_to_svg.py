@@ -2,8 +2,9 @@
 # -*- coding: utf-8 -*-
 # Copyright 2015 Jabiertxof
 # License: GPL v3+
-# Version 0.3.2
+# Version 0.1.0
 # Pango to SVG
+# https://github.com/jabiertxof/pangoToSVG
 
 import os, re, random, pango, gtk, pangocairo, math
 import lxml.etree as etree
