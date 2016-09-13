@@ -30,12 +30,7 @@ The plugin is located in File->Export->SVG menu.<br />
 ###0.1.0 Initial release
 Author: Erdem Guven and Chris Mohler [original code](http://registry.gimp.org/node/25049)
 ###0.2.0 Allow option to export text as text to the result SVG.**
-Add https://github.com/jabiertxof/pangoToSVG code
-Know issues in export as text:
-- Text can be moved a bit
-- Gimp fixed width box not fit perfect
-- Gimp indentation dont work
-
+Added [pangoToSVG](https://github.com/jabiertxof/pangoToSVG). See know issues in this git
 ###0.3.0 batch process.
 **Required**:
 - **origin**: path, directory of images to process
