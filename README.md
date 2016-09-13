@@ -38,14 +38,14 @@ Added [pangoToSVG](https://github.com/jabiertxof/pangoToSVG). See know issues in
 - **dest**: path, directory of output
 
 **Optional**:
-- **only_visible**: bool, not export invisible layers
-- **flatten**: bool, not made layers
-- **remove_offsets**: bool, remove offsets
-- **crop**: bool, each image to data only
-- **inkscape_layers**: bool, add inkscape layers -a group with custom inkscape attribute
-- **text_layers**: bool, Layers as text
-- **resolution_96**: bool,96 DPI current svg DPI. False 90 DPI legacy SVG DPI
-- **urlencode_files**: bool, Files are URL encoded
+- **only_visible**: bool, default 0, not export invisible layers
+- **flatten**: bool, default 0, not made layers
+- **remove_offsets**: bool, default 0, remove offsets
+- **crop**: bool, default 0, each image to data only
+- **inkscape_layers**: bool, default 1, add inkscape layers -a group with custom inkscape attribute
+- **text_layers**: bool, default 1, Layers as text
+- **resolution_96**: bool, default 1,96 DPI current svg DPI. False 90 DPI legacy SVG DPI
+- **urlencode_files**: bool, default 1, Files are URL encoded
 
 To run from command line:
 ```
