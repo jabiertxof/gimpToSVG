@@ -49,7 +49,7 @@ Added [pangoToSVG](https://github.com/jabiertxof/pangoToSVG). See know issues in
 
 To run from command line:
 ```
-gimp -i -b '(python-fu-batch-export-as-svg RUN-NONINTERACTIVE "origin_path" "dest_path" bool bool bool bool bool bool)' -b '(gimp-quit 0)'
+gimp -i -b '(python-fu-batch-export-as-svg RUN-NONINTERACTIVE "origin_path" "dest_path" bool bool bool bool bool bool bool bool)' -b '(gimp-quit 0)'
 ```
 ###0.3.1 bug fixes.
 - Safe URLs
