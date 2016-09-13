@@ -18,7 +18,8 @@ Main features:
 - Also wrap into SVG PNG, JPG, TIFF, BMP and GIF files
 - Work inside Gimp or on the command line
 
-Important, be sure all files has correct mimetypes, if not want a error. 
+Important, be sure all files has correct mimetypes, if not want a error.<br />
+Ecxample: To find all ".gif" files and check his real mime types with image-magic:
 > identify *.gif|grep -v GIF | wc -l
 
 ##Requirements
