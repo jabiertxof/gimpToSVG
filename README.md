@@ -67,7 +67,7 @@ Copyright 2010 Erdem Guven
 Copyright 2009 Chris Mohler
 Copyright 2015 Jabiertxo Arraiza
 ```
-Based on  http://registry.gimp.org/node/18440 and http://registry.gimp.org/node/25049
-Thanks to Geyup, the first issuer of the project and to the contributors who came later like Haakon. I hope this code is useful to you.
+Based on  http://registry.gimp.org/node/18440 and http://registry.gimp.org/node/25049< br />
+Thanks to Geyup, the first issuer of the project and to the contributors who came later like Haakon. I hope this code is useful to you.<br />
 Thanks to [Shlomi Fish](http://www.shlomifish.org) for helping me on my english on README.md.
 
