@@ -72,6 +72,7 @@ gimp -i -b '(python-fu-batch-export-as-svg RUN-NONINTERACTIVE "origin_path" "des
 ###0.3.5 Add, optional, strip original extension.
 ###0.3.6 Allow batch process inside Gimp.
 - Now works without opening files
+
 ###0.3.7 Optional embed of images on the output SVG.
 
 ##Credits
