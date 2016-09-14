@@ -53,10 +53,11 @@ Added [pangoToSVG](https://github.com/jabiertxof/pangoToSVG). See know issues in
 - **resolution_96**: bool, default 1, 96 DPI current svg DPI. False 90 DPI legacy SVG DPI
 - **urlencode_files**: bool, default 1, files are URL encoded
 - **strip_extension** bool, default 0, remove original extension !this can be wrong on files with the same name and diferent extension
+- **embed_images** bool, default 0, embed images into the resulting SVG
 
 To run from command line:
 ```
-gimp -i -b '(python-fu-batch-export-as-svg RUN-NONINTERACTIVE "origin_path" "dest_path" bool bool bool bool bool bool bool bool bool)' -b '(gimp-quit 0)'
+gimp -i -b '(python-fu-batch-export-as-svg RUN-NONINTERACTIVE "origin_path" "dest_path" bool bool bool bool bool bool bool bool bool bool)' -b '(gimp-quit 0)'
 ```
 ###0.3.1 Bugs fix.
 - Safe URLs
