@@ -1,5 +1,5 @@
 # gimpToSVG
-Version: 0.3.6, License: GPL v3-or-later
+Version: 0.3.7, License: GPL v3-or-later
 
 ##Objective
 **Normal mode:**
@@ -12,6 +12,7 @@ Main features:
 - Export text as a text element or as an image
 - Optional legacy and current SVG 96DPI mode.
 - Optional URL encode file names
+- Optional embed images
 
 **Batch mode:**
 - All the previous features
@@ -68,13 +69,10 @@ gimp -i -b '(python-fu-batch-export-as-svg RUN-NONINTERACTIVE "origin_path" "des
 - Remove warning duplicate pdb.
 
 ###0.3.4 Add, optional, URL encode.
-- Add a optional URL encode to file names.
-
 ###0.3.5 Add, optional, strip original extension.
-- Strip original extension from output.
-
 ###0.3.6 Allow batch process inside Gimp.
-- Allow batch process inside Gimp without opening files
+- Now works without opening files
+###0.3.7 Optional embed of images on the output SVG.
 
 ##Credits
 ```

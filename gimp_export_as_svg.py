@@ -8,7 +8,7 @@
 # "Groups" "Crop layer" introduced by Jabiertxof
 # "Export as text" "Flattern" "Offset" introduced by Jabiertxof from http://registry.gimp.org/node/18440
 # License: GPL v3+
-# Version 0.3.6
+# Version 0.3.7
 # GIMP plugin to export as SVG
 
 from gimpfu import *
@@ -16,6 +16,7 @@ import os, re, random, pango
 from lxml import etree
 from StringIO import StringIO
 from pango_to_svg import *
+import base64
 import urllib
 
 def format_filename(img, layer, urlencode_files, strip_extension):
@@ -39,7 +40,7 @@ def get_layers(layers, only_visible):
             result.append(layer)
     return result
 
-def layer_process(img, layers, only_visible, dupe, path, flatten=False, remove_offsets=False, crop=False, inkscape_layers=True, text_layers=True, resolution_96=True, non_xcf=False, urlencode_files = True, strip_extension = False):
+def layer_process(img, layers, only_visible, dupe, path, flatten=False, remove_offsets=False, crop=False, inkscape_layers=True, text_layers=True, resolution_96=True, non_xcf=False, urlencode_files = True, strip_extension = False,  embed_images = False):
     svg = ""
     version = gimp.version[0:2]
     is_2dot8_up = version[0] >= 2 and version[1] >= 8
@@ -55,11 +56,24 @@ def layer_process(img, layers, only_visible, dupe, path, flatten=False, remove_o
         data = ""
         pdb.gimp_image_set_active_layer(dupe, layer)
         if non_xcf:
-            image = pdb.gimp_image_get_uri(img)
-            filename = os.path.basename(image)
-            if not urlencode_files:
-                imgname = img.name.decode('utf-8')
-                filename = imgname
+            if embed_images:
+                file = img.filename
+                if os.path.splitext(file)[1].lower() == '.jpeg' or os.path.splitext(file)[1].lower() == '.jpg':
+                    filename = "data:image/jpeg;base64," + base64.b64encode(open(file, "rb").read())
+                elif os.path.splitext(file)[1].lower()== '.png':
+                    filename = "data:image/png;base64," + base64.b64encode(open(file, "rb").read())
+                elif os.path.splitext(file)[1].lower() == '.gif':
+                    filename = "data:image/gif;base64," + base64.b64encode(open(file, "rb").read())
+                elif os.path.splitext(file)[1].lower() == '.tif' or os.path.splitext(file)[1].lower() == '.tiff':
+                    filename = "data:image/tiff;base64," + base64.b64encode(open(file, "rb").read())
+                elif os.path.splitext(file)[1].lower() == '.bmp':
+                    filename = "data:image/x-ms-bmp;base64," + base64.b64encode(open(file, "rb").read())
+            else:
+                image = pdb.gimp_image_get_uri(img)
+                filename = os.path.basename(image)
+                if not urlencode_files:
+                    imgname = img.name.decode('utf-8')
+                    filename = imgname
         else:
             filename = format_filename(img, layer, urlencode_files, strip_extension)
         fullpath = os.path.join(path, filename);
@@ -77,6 +91,9 @@ def layer_process(img, layers, only_visible, dupe, path, flatten=False, remove_o
                 tmp.layers[0].set_offsets(0, 0) 
             if not non_xcf:
                 pdb.file_png_save(dupe, tmp.layers[0], fullpath, filename, 0, 9, 1, 1, 1, 1, 1)
+                if embed_images:
+                    filename = "data:image/png;base64," + base64.b64encode(open(fullpath, "rb").read())
+                    os.remove(fullpath)
             layer.visible = is_visible
         style=""
         if layer.opacity != 100.0:
@@ -138,7 +155,7 @@ def layer_process(img, layers, only_visible, dupe, path, flatten=False, remove_o
         dupe.remove_layer(layer)
     return svg
 
-def export_non_xcf_as_svg(img, dest, only_visible=False, flatten=False, remove_offsets=False, crop=False, inkscape_layers=True, text_layers=True, resolution_96=True, urlencode_files = True, strip_extension = False):
+def export_non_xcf_as_svg(img, dest, only_visible=False, flatten=False, remove_offsets=False, crop=False, inkscape_layers=True, text_layers=True, resolution_96=True, urlencode_files = True, strip_extension = False, embed_images = False):
     image = pdb.gimp_image_get_uri(img)
     imagename = os.path.basename(image)
     if not urlencode_files:
@@ -147,7 +164,7 @@ def export_non_xcf_as_svg(img, dest, only_visible=False, flatten=False, remove_o
         imagename = os.path.splitext(imagename)[0]
     dupe = img.duplicate()
     layers = get_layers(dupe.layers, only_visible)
-    svg_procesed = layer_process(img, layers, only_visible, dupe, dest, flatten, remove_offsets, crop, inkscape_layers, text_layers, resolution_96, True, urlencode_files, strip_extension)
+    svg_procesed = layer_process(img, layers, only_visible, dupe, dest, flatten, remove_offsets, crop, inkscape_layers, text_layers, resolution_96, True, urlencode_files, strip_extension, embed_images)
     svgpath = os.path.join(dest, imagename+".svg");
     svgfile = open(svgpath, "w")
     svgfile.write("""<?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -169,13 +186,13 @@ def export_non_xcf_as_svg(img, dest, only_visible=False, flatten=False, remove_o
     svgfile.write(svg_procesed);
     svgfile.write("</svg>");
     
-def export_as_svg(img, dest, only_visible=False, flatten=False, remove_offsets=False, crop=False, inkscape_layers=True, text_layers=True, resolution_96=True, urlencode_files = True, strip_extension = False):
+def export_as_svg(img, dest, only_visible=False, flatten=False, remove_offsets=False, crop=False, inkscape_layers=True, text_layers=True, resolution_96=True, urlencode_files = True, strip_extension = False, embed_images = False):
     imagename = get_image_name(img, urlencode_files)
     if strip_extension :
         imagename = os.path.splitext(imagename)[0]
     dupe = img.duplicate()
     layers = get_layers(dupe.layers, only_visible)
-    svg_procesed = layer_process(img, layers, only_visible, dupe, dest, flatten, remove_offsets, crop, inkscape_layers, text_layers, resolution_96, False, urlencode_files, strip_extension)
+    svg_procesed = layer_process(img, layers, only_visible, dupe, dest, flatten, remove_offsets, crop, inkscape_layers, text_layers, resolution_96, False, urlencode_files, strip_extension, embed_images)
     svgpath = os.path.join(dest, imagename+".svg");
     svgfile = open(svgpath, "w")
     svgfile.write("""<?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -217,7 +234,8 @@ register(
         (PF_BOOL, "text_layers", "Retain text layers as text?", True),
         (PF_BOOL, "resolution_96", "Use new SVG 96DPI resolution?", True),
         (PF_BOOL, "urlencode_files", "URL encode file names?", True),
-        (PF_BOOL, "strip_extension", "Remove original extension", False)
+        (PF_BOOL, "strip_extension", "Remove original extension", False),
+        (PF_BOOL, "embed_images", "Embed images instead linking it", False)
         ],
     results=[],
     function=(export_as_svg), 
