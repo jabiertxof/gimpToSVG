@@ -148,7 +148,7 @@ def layer_process(img, layers, only_visible, dupe, path, flatten=False, remove_o
             data += svg_text.parse()
             #pdb.gimp_message(markup)
         if is_2dot8_up and pdb.gimp_item_is_group(layer):
-            data += layer_process(layer.children, only_visible, dupe, path, flatten, remove_offsets, crop, inkscape_layers)
+            data += layer_process(img, layer.children, only_visible, dupe, path, flatten, remove_offsets, crop, inkscape_layers)
         if inkscape_layers:
             data += '</g>'
         svg = data + svg
